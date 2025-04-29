@@ -20,7 +20,7 @@ export default {
     const msg = ref("");
 
     onMounted(async () => {
-      const API_URL = process.env.URL || "http://localhost:3000";
+      const API_URL = "http://j0k400sc0k80gwwcs8kcgkow.devartist.art" || "http://localhost:3000";
 
       const res = await fetch(`${API_URL}/app/v1/product`);
       const message = await res.json();
