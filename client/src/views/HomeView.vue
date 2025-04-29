@@ -1,0 +1,34 @@
+<template>
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png">
+    <h1>{{ msg }}</h1>
+    <HelloWorld msg="Welcome to Your Vue.js App" />
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+import HelloWorld from '@/components/HelloWorld.vue'
+import { onMounted, ref } from 'vue';
+
+export default {
+  name: 'HomeView',
+  components: {
+    HelloWorld
+  },
+  setup() {
+    const msg = ref("");
+
+    onMounted(async () => {
+      const API_URL = process.env.URL || "http://localhost:3000";
+
+      const res = await fetch(`${API_URL}/app/v1/product`);
+      const message = await res.json();
+
+      msg.value = message.msg
+    })
+
+    return { msg }
+  }
+}
+</script>

@@ -1,0 +1,38 @@
+{
+  "name": "mji",
+  "version": "1.0.0",
+  "description": "probable-succotash",
+  "keywords": [
+    "SEO"
+  ],
+  "homepage": "https://github.com/DevArtist254/probable-succotash#readme",
+  "bugs": {
+    "url": "https://github.com/DevArtist254/probable-succotash/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevArtist254/probable-succotash.git"
+  },
+  "license": "ISC",
+  "author": "Devartist",
+  "type": "commonjs",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.4",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "sass": "^1.83.4"
+  }
+}
