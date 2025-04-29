@@ -1,0 +1,52 @@
+@use "../abs/ff" as *;
+@use "../abs/fw" as *;
+@use "../abs/fs" as *;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.show {
+    display: inline-block;
+}
+
+.hide {
+    display: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    object-fit: cover;
+  }
+  
+
+@each $name, $value in $ff {
+    .ff-#{$name} {
+        font-family: "#{$value}", serif;
+    } 
+}
+
+@each $name, $weights in $fw {
+    @each $weight, $value in $weights {
+        .fw-#{$name}--#{$weight} {
+            font-weight: $value;
+        }
+    }
+}
+
+@each $name, $fonts in $fs {
+    @each $font, $value in $fonts {
+        .fs-#{$name}--#{$font} {
+            font-size: $value;
+        }
+    }
+}
