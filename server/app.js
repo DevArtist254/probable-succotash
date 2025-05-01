@@ -9,7 +9,7 @@ const userRoute = require("./routes/user.route");
 const errorController = require("./controller/err.controller");
 app.use(
   cors({
-    origin: "http://localhost:8080", // must match your frontend origin
+    origin: "http://j0k400sc0k80gwwcs8kcgkow.devartist.art", // must match your frontend origin
     credentials: true, // allow cookies to be sent
   })
 );
