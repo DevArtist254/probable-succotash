@@ -19,10 +19,12 @@
   "main": "server/server.js",
   "scripts": {
     "app:server": "nodemon server/server.js",
+    "app:devserver": "NODE_ENV=development nodemon server/server.js",
     "start": "node server/server.js"
   },
   "dependencies": {
-    "bcryptjs": "^3.0.2",
+    "bcrypt": "^5.1.1",
+    "cookie-parse": "^0.4.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
