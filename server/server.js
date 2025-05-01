@@ -1,23 +1,20 @@
-const express = require("express");
-const path = require("path");
-const cors = require("cors");
+require("dotenv").config();
+const mongoose = require("mongoose");
 
-const app = express();
+async function connectDB() {
+  try {
+    await mongoose.connect(process.env.MONGODB_URL);
+
+    console.log("DB connected successfully");
+  } catch (err) {
+    console.log("An error has on accessing the db");
+  }
+}
+
+connectDB();
+
+const app = require("./app");
 const port = 3000;
-
-app.use(cors());
-
-app.use(express.static(path.join(__dirname, "../client/dist")));
-
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
-});
-
-app.get("/app/v1/product", (req, res) => {
-  res.json({
-    msg: "Hello world",
-  });
-});
 
 app.listen(port, () => {
   console.log(`Your server is running at port ${port}`);

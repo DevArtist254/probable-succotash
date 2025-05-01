@@ -18,6 +18,7 @@
   "type": "commonjs",
   "main": "server/server.js",
   "scripts": {
+    "app:server": "nodemon server/server.js",
     "start": "node server/server.js"
   },
   "dependencies": {
