@@ -34,7 +34,7 @@ export default {
         const handleSubmit = async () => {
             const submitBody = { email: email.value, password: password.value }
 
-            const res = await fetch(`http://localhost:3000/app/v1/user/login`, {
+            const res = await fetch(`http://j0k400sc0k80gwwcs8kcgkow.devartist.art/app/v1/user/login`, {
                 method: 'POST',
                 credentials: 'include', // 👈 very important: allows cookies to be set
                 headers: { 'Content-Type': 'application/json' },
