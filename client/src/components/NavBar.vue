@@ -4,19 +4,7 @@
             <router-link to="/" class="nav__logo">
                 <h1>Logo</h1>
             </router-link>
-            <form id="search">
-                <div class="bdg-pri--200 nav__search">
-                    <select name="category" ref="searchBy" class="bdg-pri--800 clr-pri--200 nav__search--select">
-                        <option value="default">Search by</option>
-                        <option value="byLocation">By Location</option>
-                        <option value="byPrice">By Price</option>
-                        <option value="byTrends">By Trends</option>
-                        <option value="byAge">By Age</option>
-                    </select>
-                    <input type="search" id="searchInput" @click="handleSearchAnime" class="nav__search--input"
-                        placeholder="Search for items here..">
-                </div>
-            </form>
+            <NavSearch />
             <ul class="nav__list">
                 <li class="nav__item">
                     <span class="nav__link">
@@ -74,22 +62,12 @@
 </template>
 
 <script>
-import { onMounted } from 'vue'
+import NavSearch from './NavSearch.vue';
+
 
 export default {
     name: "NavBar",
-    setup() {
-
-        onMounted(() => {
-            const handleSearchAnime = () => {
-                const select = this.$refs.searchBy
-
-                select.style.width = "12.5rem"
-            }
-        })
-
-        return { handleSearchAnime }
-    }
+    components: { NavSearch }
 }
 </script>
 
