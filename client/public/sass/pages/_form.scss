@@ -1,0 +1,50 @@
+@use "../abs/mixin" as *;
+
+.login {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.switch {
+  width: 50%;
+  height: 100vh;
+}
+
+.form {
+  width: 50%;
+  height: 100vh;
+
+  &__sec {
+    @include flexColumnCr(start, initial);
+
+    &--title {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+
+    &--input {
+      border-radius: 5px;
+      width: 50rem;
+      height: 4rem;
+      border: none;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+      &:focus {
+        background-color: #fff;
+        outline: none;
+      }
+    }
+  }
+
+  &__submit {
+    border-radius: 5px;
+    margin-top: 1rem;
+    width: 12rem;
+    height: 4.4rem;
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}

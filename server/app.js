@@ -7,12 +7,22 @@ const app = express();
 
 const userRoute = require("./routes/user.route");
 const errorController = require("./controller/err.controller");
-app.use(
-  cors({
-    origin: "http://j0k400sc0k80gwwcs8kcgkow.devartist.art", // must match your frontend origin
-    credentials: true, // allow cookies to be sent
-  })
-);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(
+    cors({
+      origin: "http://j0k400sc0k80gwwcs8kcgkow.devartist.art", // must match your frontend origin
+      credentials: true, // allow cookies to be sent
+    })
+  );
+} else if (process.env.NODE_ENV === "development") {
+  app.use(
+    cors({
+      origin: "http://localhost:8080/", // must match your frontend origin
+      credentials: true, // allow cookies to be sent
+    })
+  );
+}
 
 app.use(cookieParser());
 

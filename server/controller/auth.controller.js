@@ -94,9 +94,11 @@ exports.restrictTo = (...roles) => {
 
   Use JWTs stored in HttpOnly cookies:
 
-    Best of both worlds: stateless, secure, and browser-managed.
+  Best of both worlds: stateless, secure, and browser-managed.
 
     Prevents XSS (since JavaScript can’t access the cookie).
 
     Prevents CSRF with SameSite=Strict|Lax.
  */
+
+//
