@@ -1,7 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import LoginView from "@/views/LoginView.vue";
-import SignupView from "@/views/SignupView.vue";
+import NavBar from "@/components/NavBar.vue";
+// import LoginView from "@/views/LoginView.vue";
+// // import SignupView from "@/views/SignupView.vue";
+import ProfileDash from "@/views/dashboard/pages/General/ProfileDash.vue";
+import DashboardView from "@/views/dashboard/DashboardView.vue";
+import LoginSettings from "@/components/Dashboard/General/LoginSettings.vue";
+import SignupSettings from "@/components/Dashboard/General/SignupSettings.vue";
+import ForgotPasswordSettings from "@/components/Dashboard/General/ForgotPasswordSettings.vue";
 
 const routes = [
   {
@@ -10,23 +16,29 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/login",
-    name: "LoginView",
-    component: LoginView,
+    path: "/dashboard",
+    component: DashboardView,
+    children: [
+      {
+        path: "profile",
+        component: ProfileDash,
+        children: [
+          {
+            path: "login",
+            component: LoginSettings,
+          },
+          {
+            path: "signup",
+            component: SignupSettings,
+          },
+          {
+            path: "forgotpassword",
+            component: ForgotPasswordSettings,
+          },
+        ],
+      },
+    ],
   },
-  {
-    path: "/signup",
-    name: "SignupView",
-    component: SignupView,
-  },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // }
 ];
 
 const router = createRouter({

@@ -1,38 +1,98 @@
 <template>
-    <nav>
-        <h2>logo</h2>
-        <form>
-            <input type="search" placeholder="Search here....">
-        </form>
+  <nav
+    class="sidebarnav bdg-pri--1000 clr-pri--600 fs-pri--800 ff-sec fw-pri--200"
+  >
+    <router-link to="/" class="sidebarnav__logo">
+      <img
+        src="../../assets/logo.svg"
+        alt="logo"
+        class="sidebarnav__logo--img"
+      />
+    </router-link>
+    <form class="sidebarnav__form">
+      <input
+        class="sidebarnav__form--search"
+        type="search"
+        placeholder="Search setting here...."
+      />
+    </form>
+    <span class="sidebarnav__nav">
+      <p class="sidebarnav__nav--title">
+        <Icon
+          icon="tabler:settings-down"
+          width="48"
+          height="48"
+          style="color: C9C1B1"
+        />
+        Profile settings
+      </p>
+      <ul class="sidebarnav__nav--list">
+        <li>
+          <router-link
+            class="sidebarnav__nav--link clr-pri--600 fs-pri--800 ff-sec fw-pri--200"
+            to="/dashboard/profile/login"
+            >Login</router-link
+          >
+        </li>
+        <li>
+          <router-link
+            class="sidebarnav__nav--link clr-pri--600 fs-pri--800 ff-sec fw-pri--200"
+            to="/dashboard/profile/signup"
+            >Signup</router-link
+          >
+        </li>
+        <li>
+          <router-link
+            class="sidebarnav__nav--link clr-pri--600 fs-pri--800 ff-sec fw-pri--200"
+            to="/dashboard/profile/forgotpassword"
+            >Forgot Password</router-link
+          >
+        </li>
+      </ul>
+    </span>
+    <ul v-if="loginedIn">
+      <li>Home</li>
+      <li>Studio</li>
+      <li>
+        <span>Orders <button>></button></span>
         <ul>
-            <li>Home</li>
-            <li>Studio</li>
-            <li><span>Orders <button>></button></span>
-                <ul>
-                    <li>Confirmed orders</li>
-                    <li>Bookmarks</li>
-                    <li>In progress</li>
-                </ul>
-            </li>
-            <li>Inbox</li>
-            <li>Customer</li>
-            <li>
-                <span>Setting <button>></button></span>
-                <ul>
-                    <li>General</li>
-                    <li>Members</li>
-                    <li>Notifications</li>
-                    <li>Security</li>
-                </ul>
-            </li>
+          <li>Confirmed orders</li>
+          <li>Bookmarks</li>
+          <li>In progress</li>
         </ul>
-    </nav>
+      </li>
+      <li>Inbox</li>
+      <li>Customer</li>
+      <li>
+        <span>Setting <button>></button></span>
+        <ul>
+          <li>General</li>
+          <li>Members</li>
+          <li>Notifications</li>
+          <li>Security</li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
-export default {
+import { ref } from "vue";
+import { Icon } from "@iconify/vue";
 
-}
+export default {
+  name: "SidebarNav",
+  components: { Icon },
+  setup() {
+    const loginedIn = ref(false);
+
+    return { loginedIn };
+  },
+};
 </script>
 
-<style></style>
+<style>
+a.router-link-exact-active {
+  text-decoration: underline;
+}
+</style>

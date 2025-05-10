@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <SidebarNav />
-        <router-view />
+    <div class="dashboard">
+       <SidebarNav />
+       <router-view /> 
     </div>
 </template>
 

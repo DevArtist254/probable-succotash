@@ -1,16 +1,22 @@
 <template>
   <div>
-    <NavBar />
-    <router-view />
+    <div>
+      <router-view></router-view>
+      <router-view name="NavBar"></router-view>
+      <!-- <SidebarNav /> -->
+    </div>
   </div>
+
 </template>
 
 <script>
+import SidebarNav from './components/Dashboard/SidebarNav.vue';
 import NavBar from './components/NavBar.vue';
 
 export default {
   components: {
-    NavBar
+    NavBar,
+    SidebarNav
   }
 }
 </script>

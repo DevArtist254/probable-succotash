@@ -42,16 +42,6 @@
                 </li>
                 <li class="nav__item">
                     <span class="nav__cta bdg-pri--200">
-                        <router-link to="/login"
-                            class="nav__cta--link clr-pri--800 fs-pri--200 ff-sec">Login</router-link>
-                    </span>
-                    <span class="nav__cta bdg-pri--200">
-                        <router-link to="/signup"
-                            class="nav__cta--link clr-pri--800 fs-pri--200 ff-sec">Signup</router-link>
-                    </span>
-                </li>
-                <li class="nav__item">
-                    <span class="nav__cta bdg-pri--200">
                         <router-link to="/trade"
                             class="nav__cta--link clr-pri--800 fs-pri--200 ff-sec">Trade</router-link>
                     </span>

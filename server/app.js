@@ -15,10 +15,10 @@ if (process.env.NODE_ENV === "production") {
       credentials: true, // allow cookies to be sent
     })
   );
-} else if (process.env.NODE_ENV === "development") {
+} else {
   app.use(
     cors({
-      origin: "http://localhost:8080/", // must match your frontend origin
+      origin: "http://localhost:8080", // must match your frontend origin
       credentials: true, // allow cookies to be sent
     })
   );
@@ -31,6 +31,18 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
+
+  if (process.env.NODE_ENV === "development")
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+  if (process.env.NODE_ENV === "production")
+    res.setHeader(
+      "Access-Control-Allow-Origin",
+      "http://j0k400sc0k80gwwcs8kcgkow.devartist.art"
+    );
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
   res.setHeader(
     "Content-Security-Policy",
     [

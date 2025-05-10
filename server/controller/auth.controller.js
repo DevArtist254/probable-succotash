@@ -17,13 +17,10 @@ function createSendToken(user, statusCode, res) {
     expires: new Date(
       Date.now() + process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
+    secure: true,
+    sameSite: "Lax",
+    httpOnly: true,
   };
-
-  if (process.env.NODE_ENV === "production") {
-    cookieOptions.httpOnly = true;
-    cookieOptions.sameSite = "Lax";
-    cookieOptions.secure = true;
-  }
 
   res.cookie("jwt", token, cookieOptions);
 
