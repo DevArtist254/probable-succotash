@@ -56,6 +56,26 @@ exports.login = CatchAsync(async (req, res, next) => {
   createSendToken(user, 200, res);
 });
 
+exports.checkifcookieisvalid = CatchAsync(async (req, res, next) => {
+  let token;
+
+  if (req.cookie && req.cookie.jwt) {
+    token = req.cookie.jwt;
+  }
+
+  if (!token) next(new ErrorHandler("Access denied, please login", 401));
+
+  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+
+  let existingUser = await User.findById(decoded.id);
+
+  if (!existingUser) next(new ErrorHandler("Access denied", 401));
+
+  res.status(200).json({
+    valid: true,
+  });
+});
+
 exports.protect = CatchAsync(async (req, res, next) => {
   let token;
 

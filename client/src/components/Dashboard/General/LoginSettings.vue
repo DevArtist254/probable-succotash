@@ -46,10 +46,12 @@
 
 <script>
 import { ref } from "vue";
+import { useUserStore } from "@/stores/user";
 
 export default {
   name: "LoginSettings",
   setup() {
+    const userStore = useUserStore();
     const email = ref("");
     const password = ref("");
     const API_URL =
@@ -67,7 +69,7 @@ export default {
       });
 
       const content = await res.json();
-      console.log(content);
+      userStore.login(content);
     };
 
     return { handleSubmit, email, password };

@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import NavBar from "@/components/NavBar.vue";
-// import LoginView from "@/views/LoginView.vue";
-// // import SignupView from "@/views/SignupView.vue";
+import AboutView from "@/views/AboutView.vue";
 import ProfileDash from "@/views/dashboard/pages/General/ProfileDash.vue";
 import DashboardView from "@/views/dashboard/DashboardView.vue";
 import LoginSettings from "@/components/Dashboard/General/LoginSettings.vue";
@@ -14,6 +12,11 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
+  },
+  {
+    path: "/about",
+    component: AboutView,
+    meta: { requiresAuth: true },
   },
   {
     path: "/dashboard",

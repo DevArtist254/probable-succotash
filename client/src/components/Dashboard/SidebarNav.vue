@@ -16,7 +16,7 @@
         placeholder="Search setting here...."
       />
     </form>
-    <span class="sidebarnav__nav">
+    <span v-if="!loginedIn" class="sidebarnav__nav">
       <p class="sidebarnav__nav--title">
         <Icon
           icon="tabler:settings-down"
@@ -64,13 +64,40 @@
       <li>Inbox</li>
       <li>Customer</li>
       <li>
-        <span>Setting <button>></button></span>
-        <ul>
-          <li>General</li>
-          <li>Members</li>
-          <li>Notifications</li>
-          <li>Security</li>
-        </ul>
+        <span class="sidebarnav__nav">
+          <p class="sidebarnav__nav--title">
+            <Icon
+              icon="tabler:settings-down"
+              width="48"
+              height="48"
+              style="color: C9C1B1"
+            />
+            Profile settings
+          </p>
+          <ul class="sidebarnav__nav--list">
+            <li>
+              <router-link
+                class="sidebarnav__nav--link clr-pri--600 fs-pri--800 ff-sec fw-pri--200"
+                to="/dashboard/profile"
+                >General</router-link
+              >
+            </li>
+            <li>
+              <router-link
+                class="sidebarnav__nav--link clr-pri--600 fs-pri--800 ff-sec fw-pri--200"
+                to="/dashboard/profile/notifications"
+                >Notifications</router-link
+              >
+            </li>
+            <li>
+              <router-link
+                class="sidebarnav__nav--link clr-pri--600 fs-pri--800 ff-sec fw-pri--200"
+                to="/dashboard/profile/security"
+                >Security</router-link
+              >
+            </li>
+          </ul>
+        </span>
       </li>
     </ul>
   </nav>
@@ -79,12 +106,14 @@
 <script>
 import { ref } from "vue";
 import { Icon } from "@iconify/vue";
+import { useUserStore } from "@/stores/user";
 
 export default {
   name: "SidebarNav",
   components: { Icon },
   setup() {
-    const loginedIn = ref(false);
+    const userStore = useUserStore();
+    const loginedIn = userStore.isLoggedIn;
 
     return { loginedIn };
   },
