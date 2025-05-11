@@ -1,5 +1,6 @@
 <template>
   <div class="main-content">
+    <NavBar />
     <div class="home">
       <img alt="Vue logo" src="../assets/logo.png" />
       <h1>{{ msg }}</h1>
