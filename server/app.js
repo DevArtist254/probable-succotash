@@ -46,7 +46,7 @@ app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
     [
-      "default-src 'none'",
+      "default-src 'none' 'unsafe-eval'",
       "script-src 'self' 'unsafe-eval' https://unpkg.com",
       "style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
