@@ -78,13 +78,16 @@ export default {
         password: password.value,
       };
 
-      const res = await fetch(`http://localhost:3000/app/v1/user/signup`, {
-        method: "POST",
-        mode: "cors",
-        credentials: "include", // 👈 very important: allows cookies to be set
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(submitBody),
-      });
+      const res = await fetch(
+        `http://j0k400sc0k80gwwcs8kcgkow.devartist.art/app/v1/user/signup`,
+        {
+          method: "POST",
+          mode: "cors",
+          credentials: "include", // 👈 very important: allows cookies to be set
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(submitBody),
+        }
+      );
 
       const content = await res.json();
       console.log(content);

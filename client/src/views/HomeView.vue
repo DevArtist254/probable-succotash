@@ -26,7 +26,9 @@ export default {
         "http://j0k400sc0k80gwwcs8kcgkow.devartist.art" ||
         "http://localhost:3000";
 
-      const res = await fetch(`http://localhost:3000/app/v1/product`);
+      const res = await fetch(
+        `http://j0k400sc0k80gwwcs8kcgkow.devartist.art/app/v1/product`
+      );
       const message = await res.json();
 
       msg.value = message.msg;

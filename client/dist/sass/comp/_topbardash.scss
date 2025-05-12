@@ -1,0 +1,31 @@
+@use "../abs/mixin" as *;
+
+.topbardash {
+  position: absolute;
+  right: 0;
+  width: 82.5%;
+  height: 17vh;
+  border-bottom: 1px solid #c9c1b1;
+
+  &__nav {
+    &--title {
+      height: 55%;
+      border-bottom: 1px solid #c9c1b1;
+      @include flexRowCr(center, initial);
+      padding-left: 4rem;
+    }
+
+    &--list {
+      list-style: none;
+      height: 45%;
+      max-width: 120rem;
+      @include flexRowCr();
+      margin-left: 10rem;
+    }
+
+    &--link {
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}
