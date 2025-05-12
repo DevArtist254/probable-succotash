@@ -46,16 +46,16 @@ app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
     [
-      "default-src 'none';",
-      "script-src 'self' 'unsafe-eval' https://unpkg.com/leaflet@1.9.4/dist/leaflet.js;",
-      "style-src 'self' 'unsafe-inline' https://unpkg.com/leaflet@1.9.4/dist/leaflet.css https://fonts.googleapis.com;",
-      "font-src 'self' https://fonts.gstatic.com;",
-      "img-src 'self' data: https://*;",
-      "connect-src 'self';",
-      "frame-src 'none';",
-      "base-uri 'self';",
-      "form-action 'self';",
-    ].join(" ")
+      "default-src 'none'",
+      "script-src 'self' 'unsafe-eval' https://unpkg.com",
+      "style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com",
+      "img-src 'self' data: https://* http://j0k400sc0k80gwwcs8kcgkow.devartist.art",
+      "connect-src 'self'",
+      "frame-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self'",
+    ].join("; ")
   );
   next();
 });
