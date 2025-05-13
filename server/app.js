@@ -11,7 +11,7 @@ const errorController = require("./controller/err.controller");
 if (process.env.NODE_ENV === "production") {
   app.use(
     cors({
-      origin: "http://j0k400sc0k80gwwcs8kcgkow.devartist.art", // must match your frontend origin
+      origin: "http://http://eo00wo08gs08kwosoowksksg.devartist.art/", // must match your frontend origin
       credentials: true, // allow cookies to be sent
     })
   );
@@ -37,7 +37,7 @@ app.use((req, res, next) => {
   if (process.env.NODE_ENV === "production")
     res.setHeader(
       "Access-Control-Allow-Origin",
-      "http://j0k400sc0k80gwwcs8kcgkow.devartist.art"
+      "http://eo00wo08gs08kwosoowksksg.devartist.art/"
     );
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
