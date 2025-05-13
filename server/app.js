@@ -11,7 +11,7 @@ const errorController = require("./controller/err.controller");
 if (process.env.NODE_ENV === "production") {
   app.use(
     cors({
-      origin: "http://http://eo00wo08gs08kwosoowksksg.devartist.art/", // must match your frontend origin
+      origin: "http://eo00wo08gs08kwosoowksksg.devartist.art/", // must match your frontend origin
       credentials: true, // allow cookies to be sent
     })
   );
