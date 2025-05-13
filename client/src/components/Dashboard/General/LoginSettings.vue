@@ -62,7 +62,7 @@ export default {
       const submitBody = { email: email.value, password: password.value };
 
       const res = await fetch(
-        `http://j0k400sc0k80gwwcs8kcgkow.devartist.art/app/v1/user/login`,
+        `http://eo00wo08gs08kwosoowksksg.devartist.art/app/v1/user/login`,
         {
           method: "POST",
           credentials: "include", // 👈 very important: allows cookies to be set

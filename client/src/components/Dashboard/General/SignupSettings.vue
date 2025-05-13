@@ -79,7 +79,7 @@ export default {
       };
 
       const res = await fetch(
-        `http://j0k400sc0k80gwwcs8kcgkow.devartist.art/app/v1/user/signup`,
+        `http://eo00wo08gs08kwosoowksksg.devartist.art/app/v1/user/signup`,
         {
           method: "POST",
           mode: "cors",
