@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 const userRoute = require("./routes/user.route");
+const productRoute = require("./routes/product.route");
 const errorController = require("./controller/err.controller");
 
 if (process.env.NODE_ENV === "production") {
@@ -43,7 +44,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  rres.setHeader(
+  res.setHeader(
     "Content-Security-Policy",
     "script-src 'self' 'unsafe-eval'; object-src 'none';"
   );
@@ -54,11 +55,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
 });
 
-app.get("/app/v1/product", (req, res) => {
-  res.json({
-    msg: "Hello world",
-  });
-});
+app.use("/app/v1/product", productRoute);
 app.use("/app/v1/user", userRoute);
 
 app.use(errorController);

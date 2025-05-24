@@ -29,11 +29,10 @@ img {
   object-fit: cover;
 }
 
-// .main-content {
-//   width: 85%;
-//   position: absolute;
-//   right: 0;
-// }
+.main-content {
+  width: 85%;
+  margin: 5rem auto;
+}
 
 @each $name, $value in $ff {
   .ff-#{$name} {

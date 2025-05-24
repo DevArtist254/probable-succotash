@@ -30,6 +30,54 @@ const userSchema = new mongoose.Schema(
       default: true,
       select: false,
     },
+    location: [
+      {
+        type: {
+          type: String,
+          default: "Point",
+          enum: ["Point"],
+        },
+        coordinates: [Number],
+        address: String,
+        description: String,
+        primary: Boolean,
+      },
+    ],
+    logo: String,
+    slogan: {
+      type: String,
+      trim: true,
+    },
+    socials: [
+      {
+        image: {
+          type: String,
+          enum: [
+            "facebook",
+            "instagram",
+            "linkedin",
+            "telegram",
+            "tiktok",
+            "whatsapp",
+            "x",
+            "youtube",
+          ],
+          default: "whatsapp",
+        },
+        link: String,
+      },
+    ],
+    phoneNumber: [
+      {
+        type: Number,
+        validate: {
+          validator: function (value) {
+            return validator.isMobilePhone(value, "en-KE");
+          },
+          message: "Please enter a valid kenya number",
+        },
+      },
+    ],
   },
   {
     toJSON: { virtuals: true },

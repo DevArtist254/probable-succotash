@@ -1,0 +1,29 @@
+@use "./../abs/mixin" as *;
+
+.card {
+  width: 30rem;
+  height: 45.9rem;
+  position: relative;
+
+  &__content {
+    width: 100%;
+    height: 80%;
+    border-radius: 1rem;
+    border: 1px solid #000;
+    @include flexColumnCr(center, space-between);
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+
+  &__link {
+    @include flexRowCr();
+  }
+
+  &__bookmark {
+    position: absolute;
+    z-index: 5;
+    top: -1px;
+    right: 26px;
+  }
+}
