@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import ListingView from "../views/ListingView.vue";
 import DetailsView from "../views/DetailsView.vue";
 import AboutView from "@/views/AboutView.vue";
 import ProfileDash from "@/views/dashboard/pages/General/ProfileDash.vue";
@@ -11,15 +12,23 @@ import ForgotPasswordSettings from "@/components/Dashboard/General/ForgotPasswor
 const routes = [
   {
     path: "/",
-    name: "home",
     component: HomeView,
+    children: [
+      {
+        path: "",
+        name: "ListingView",
+        component: ListingView,
+        props: true,
+      },
+      {
+        path: "/details/:id",
+        name: "DetailsView",
+        component: DetailsView,
+        props: true,
+      },
+    ],
   },
-  {
-    path: "/details/:id",
-    name: "DetailsView",
-    component: DetailsView,
-    props: true,
-  },
+
   {
     path: "/about",
     component: AboutView,
