@@ -1,3 +1,12 @@
+:root {
+  --grid-max-width: 126rem;
+  --grid-gutter: var(
+    --space-s-l,
+    clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem)
+  );
+  --grid-columns: 12;
+}
+
 *,
 *::after,
 *::before {
@@ -24,9 +33,15 @@ img {
   object-fit: cover;
 }
 
-.main-content {
-  width: 85%;
-  margin: 5rem auto;
+.m-container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+.m-grid {
+  display: grid;
+  gap: var(--grid-gutter);
 }
 
 .ff-pri {
@@ -54,31 +69,31 @@ img {
 }
 
 .fs-pri--1400 {
-  font-size: 4rem;
+  font-size: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
 }
 
 .fs-pri--1200 {
-  font-size: 3.6rem;
+  font-size: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
 }
 
 .fs-pri--1000 {
-  font-size: 3.2rem;
+  font-size: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
 }
 
 .fs-pri--800 {
-  font-size: 2.4rem;
+  font-size: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
 }
 
 .fs-pri--600 {
-  font-size: 2rem;
+  font-size: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
 }
 
 .fs-pri--400 {
-  font-size: 1.8rem;
+  font-size: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
 }
 
 .fs-pri--200 {
-  font-size: 1.6rem;
+  font-size: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
 }
 
 .bdg-pri--1000 {
@@ -487,8 +502,8 @@ img {
   }
 }
 .card {
-  width: 30rem;
-  height: 45.9rem;
+  width: 28rem;
+  height: 46rem;
   position: relative;
 }
 .card__content {
@@ -519,9 +534,7 @@ img {
   right: 26px;
 }
 
-.container {
-  max-width: 158.6rem;
-  margin: 10rem auto;
+.containerRow {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -643,7 +656,7 @@ img {
   height: 21rem;
   border-radius: 10rem;
   overflow: hidden;
-  box-shadow: 0 4px 7px 5px #E6C068;
+  box-shadow: 0 4px 7px 5px #e6c068;
 }
 .user__address {
   padding-top: 4rem;
@@ -760,7 +773,29 @@ address {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: var(--grid-gutter);
+}
+
+.pages {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: initial;
+}
+
+.next,
+.prev {
+  width: 8rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prev {
+  margin-right: 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

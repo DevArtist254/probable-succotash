@@ -1,6 +1,22 @@
+@use "../abs/mixin" as *;
+
 .listing {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: var(--grid-gutter);
+}
+
+.pages {
+  @include flexRowCr(initial, flex-end);
+}
+
+.next,
+.prev {
+  width: 8rem;
+  @include flexRowCr();
+}
+
+.prev {
+  margin-right: 0.5rem;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="m-container containerRow">
     <main id="main">
       <ad-images />
       <ad-details :product="product" />

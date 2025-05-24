@@ -3,6 +3,15 @@
 @use "../abs/fs" as *;
 @use "../abs/mixin" as *;
 
+:root {
+  --grid-max-width: 126rem;
+  --grid-gutter: var(
+    --space-s-l,
+    clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem)
+  );
+  --grid-columns: 12;
+}
+
 *,
 *::after,
 *::before {
@@ -29,9 +38,15 @@ img {
   object-fit: cover;
 }
 
-.main-content {
-  width: 85%;
-  margin: 5rem auto;
+.m-container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+.m-grid {
+  display: grid;
+  gap: var(--grid-gutter);
 }
 
 @each $name, $value in $ff {

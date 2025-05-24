@@ -1,15 +1,12 @@
 @use "../abs/mixin" as *;
 
-.container {
-  max-width: 158.6rem;
-  margin: 10rem auto;
+.containerRow {
   @include flexRowCr(initial);
 }
 
 #main {
   width: 79.8%;
 }
-
 
 #ad {
   margin-top: 4rem;
@@ -24,7 +21,6 @@
 .specificationsPri {
   @include flexRowCr(baseline, initial);
 }
-
 
 .main {
   border-bottom: 5px solid #1b2632;
@@ -68,7 +64,6 @@
   padding-left: 2rem;
 }
 
-
 .images {
   width: 100%;
 
@@ -77,7 +72,6 @@
   }
 
   &__sec {
-
     &--1,
     &--2,
     &--3,
@@ -120,50 +114,48 @@
 }
 
 .user {
+  padding-top: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+
+  width: 100%;
+  @include flexRowCr(center, space-between);
+
+  &__photo {
+    width: 21rem;
+    height: 21rem;
+    border-radius: 10rem;
+    overflow: hidden;
+    box-shadow: 0 4px 7px 5px #e6c068;
+  }
+
+  &__address {
     padding-top: 4rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
 
     width: 100%;
     @include flexRowCr(center, space-between);
+  }
 
-    &__photo {
-      width: 21rem;
-      height: 21rem;
-      border-radius: 10rem;
-      overflow: hidden;
-      box-shadow: 0 4px 7px 5px #E6C068;
-    }
+  &__stack {
+    display: flex;
+    flex-direction: column;
+  }
 
-    &__address {
-      padding-top: 4rem;
+  &__location {
+    height: 50vh;
+  }
 
-      width: 100%;
-      @include flexRowCr(center, space-between);
-  
-    }
-
-    &__stack {
-      display: flex;
-      flex-direction: column;
-    }
-
-    &__location {
-      height: 50vh;
-    }
-
-    &__social {
-      margin-right: 20px;
-    }
+  &__social {
+    margin-right: 20px;
+  }
 }
 
 #map {
   height: 100%;
 }
 
-
 address {
-    @include flexRowCr(center, initial);
+  @include flexRowCr(center, initial);
 }
 
 .sidebar {
@@ -172,16 +164,13 @@ address {
 }
 
 #safety_tips {
-
   ul {
     padding-left: 2rem;
   }
 }
-
 
 .sidebar__content.sticky {
   position: fixed;
   top: 0;
   width: 33rem;
 }
-

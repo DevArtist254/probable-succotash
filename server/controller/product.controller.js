@@ -1,13 +1,6 @@
 const CatchAsync = require("../utils/CatchAsync");
 const Vehicle = require("./../models/vehicle.model");
+const factory = require("./factory.controller");
 
-exports.getCarListings = CatchAsync(async (req, res, next) => {
-  const cars = await Vehicle.find({});
-
-  res.status(202).json({
-    status: "success",
-    data: {
-      cars,
-    },
-  });
-});
+exports.getCarListings = factory.getAll(Vehicle);
+// exports.getCarDetail

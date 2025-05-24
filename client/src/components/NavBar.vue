@@ -1,6 +1,6 @@
 <template>
   <nav class="bdg-pri--1000">
-    <div class="nav">
+    <div class="nav m-container">
       <router-link to="/" class="nav__logo">
         <img alt="Vue logo" src="../assets/logo.png" />
       </router-link>
