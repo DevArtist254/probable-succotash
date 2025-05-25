@@ -1,0 +1,60 @@
+@use "../abs/mixin" as *;
+
+.profile-content {
+  position: absolute;
+  top: 224px;
+  right: 0;
+  width: 82.5%;
+  height: 100%;
+
+  @include flexColumnCr(center, initial);
+  padding-top: 20rem;
+}
+
+.content {
+  width: 35%;
+  min-height: 30%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  @include flexColumnCr();
+}
+
+.form {
+  height: fit-content;
+  margin: 4rem 0;
+
+  &__sec {
+    @include flexColumnCr(start, initial);
+
+    &--title {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+
+    &--input {
+      border-radius: 5px;
+      width: 50rem;
+      height: 4rem;
+      border: none;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+      margin-bottom: 2rem;
+
+      &:focus {
+        background-color: #fff;
+        outline: none;
+      }
+    }
+  }
+
+  &__submit {
+    border-radius: 5px;
+    margin-top: 1rem;
+    width: 12rem;
+    height: 4.4rem;
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+}
