@@ -3,9 +3,11 @@
     <main id="main">
       <ad-images />
       <ad-details :product="product" />
-      <specifications-primary :product="product" />
-      <specifications-secondary />
-      <ad-description />
+      <specifications-primary
+        :primarySpecifications="product.primarySpecifications"
+      />
+      <specifications-secondary :specifications="product.specifications" />
+      <ad-description :description="product.description" />
       <seller-details />
       <user-address />
       <user-location />

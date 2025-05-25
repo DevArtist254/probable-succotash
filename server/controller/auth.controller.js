@@ -83,6 +83,15 @@ exports.protect = CatchAsync(async (req, res, next) => {
     token = req.cookie.jwt;
   }
 
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+
+  console.log(token);
+
   if (!token) next(new ErrorHandler("Access denied, please login", 401));
 
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);

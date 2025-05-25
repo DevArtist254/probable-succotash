@@ -4,12 +4,12 @@
     <div class="card__content">
       <h1 class="card__content--heading">{{ product.title }}</h1>
       <div class="card__subcontent">
-        <h2 class="card__subcontent--title">Price: {{ product.views }}</h2>
+        <h2 class="card__subcontent--title">Price: {{ product.price }}</h2>
         <StarsView />
       </div>
     </div>
     <div class="card__link">
-      <router-link :to="{ name: 'DetailsView', params: { id: product.title } }"
+      <router-link :to="{ name: 'DetailsView', params: { id: product._id } }"
         >Details</router-link
       >
       <p>Get contact</p>

@@ -1,6 +1,42 @@
 <template>
   <section class="sidebar">
-    <div class="sidebar__content"></div>
+    <div class="sidebar__content">
+      <div class="images__sec">
+        <div class="images__sec--mask">
+          <span class="images__sec--text">
+            <h2 class="ff-sec fw-pri--200 fs-pri--1200 clr-pri--1000"></h2>
+            <p class="ff-sec fw-pri--800 fs-pri--600 clr-pri--1000">
+              Request a call
+            </p>
+          </span>
+          <div class="images__sec--2">
+            <img
+              src="/images/681bfee0d256d883fafcd13a/image-1.jpg"
+              alt="car1"
+            />
+          </div>
+        </div>
+        <div class="images__sec--1">
+          <img src="/images/681bfee0d256d883fafcd13a/image-2.jpg" alt="car2" />
+        </div>
+        <div class="images__sec--3">
+          <img src="/images/681bfee0d256d883fafcd13a/image-3.jpg" alt="car3" />
+        </div>
+        <div class="images__sec--mask">
+          <span class="images__sec--text">
+            <h1 class="ff-sec fw-pri--1000 fs-pri--1400 clr-pri--1000">
+              7+ Images
+            </h1>
+          </span>
+          <div class="images__sec--4">
+            <img
+              src="/images/681bfee0d256d883fafcd13a/cover-image.jpg"
+              alt="car5"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="safety_tips">
       <h2 class="clr-pri--1000 fw-pri--800 ff-sec fs-pri--800">Safety tips</h2>
       <ul>
@@ -39,7 +75,44 @@
 </template>
 
 <script>
-export default {};
+import { ref, onMounted, onBeforeUnmount } from "vue";
+
+export default {
+  setup() {
+    const mainRef = ref(null);
+    const sideBarRef = ref(null);
+    const isSticky = ref(false);
+
+    const handleScroll = () => {
+      if (!mainRef.value || !sideBarRef.value) return;
+
+      const parentRect = mainRef.value.getBoundingClientRect();
+      const sidebarRect = sideBarRef.value.getBoundingClientRect();
+
+      if (
+        parentRect.top <= 20 &&
+        parentRect.bottom - sidebarRect.height >= 20
+      ) {
+        isSticky.value = true;
+      } else {
+        isSticky.value = false;
+      }
+    };
+
+    onMounted(() => {
+      window.addEventListener("scroll", handleScroll);
+    });
+
+    onBeforeUnmount(() => {
+      window.removeEventListener("scroll", handleScroll);
+    });
+  },
+};
 </script>
 
-<style></style>
+<style>
+.sticky {
+  position: fixed;
+  top: 20px;
+}
+</style>

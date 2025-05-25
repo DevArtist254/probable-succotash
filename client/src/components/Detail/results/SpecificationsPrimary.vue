@@ -1,12 +1,12 @@
 <template>
   <div class="specificationsPri">
-    <div :key="spec.value" v-for="spec in product.primary_specifications">
+    <div :key="spec._id" v-for="spec in primarySpecifications">
       <div class="specificationsPri__icon">
         <img
-          :src="`./assets/images/icons/${spec.type}.svg`"
-          :alt="`${spec.value} logo`"
+          :src="`../../../assets/images/icons/${spec.specType}.svg`"
+          :alt="`${spec.specType} logo`"
         />
-        <p class="clr-pri--1000 fw-pri--800 ff-sec fs-pri--200">
+        <p class="clr-pri--1000 fw-pri--800 ff-sec fs-pri--600">
           {{ spec.value }}
         </p>
       </div>
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  props: ["product"],
+  props: ["primarySpecifications"],
 };
 </script>
 

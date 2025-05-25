@@ -69,7 +69,6 @@ const vehicleSchema = new mongoose.Schema(
       ],
       default: "Motors",
     },
-
     color: {
       type: String,
       enum: [
@@ -375,6 +374,25 @@ const vehicleSchema = new mongoose.Schema(
         "Van",
       ],
     },
+    location: {
+      type: {
+        type: String,
+        default: "Point",
+        enum: ["Point"],
+      },
+      coordinates: [Number],
+      address: String,
+      images: [String],
+      description: String,
+    },
+    seller: {
+      type: mongoose.Schema.ObjectId,
+      ref: "User",
+      required: [true, "Must have a user"],
+    },
+    coverImage: String,
+    coverVideo: String,
+    images: [String],
   },
   {
     toJSON: { virtuals: true },
