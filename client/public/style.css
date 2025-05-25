@@ -777,11 +777,21 @@ address {
 }
 
 .pages {
+  width: 20rem;
+}
+.pages__btn {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: initial;
+  justify-content: space-between;
+  align-items: center;
+}
+.pages__currentPage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .next,

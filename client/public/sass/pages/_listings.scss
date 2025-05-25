@@ -8,7 +8,15 @@
 }
 
 .pages {
-  @include flexRowCr(initial, flex-end);
+  width: 20rem;
+
+  &__btn {
+    @include flexRowCr();
+  }
+
+  &__currentPage {
+    @include flexRowCr(center, center);
+  }
 }
 
 .next,

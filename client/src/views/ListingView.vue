@@ -1,32 +1,38 @@
 <template>
   <div>
     <div v-if="listing.length !== 0" class="m-container">
-      <cards-view :listing="listing" />
       <div class="pages">
-        <div
-          class="prev"
-          @click="goToPage(currentPage - 1)"
-          v-show="!(currentPage === 1)"
-        >
-          <Icon
-            icon="ion:arrow-undo"
-            width="32"
-            height="32"
-            style="color: C9C1B1"
-          />
-          <p>prev page</p>
+        <div class="pages__btn">
+          <div
+            class="prev"
+            @click="goToPage(currentPage - 1)"
+            v-show="!(currentPage === 1)"
+          >
+            <Icon
+              icon="ion:arrow-undo"
+              width="32"
+              height="32"
+              style="color: C9C1B1"
+            />
+            <p>prev page</p>
+          </div>
+          <div class="next" @click="goToPage(currentPage + 1)">
+            <p>next page</p>
+            <Icon
+              icon="ion:arrow-redo-sharp"
+              width="32"
+              height="32"
+              style="color: C9C1B1"
+            />
+          </div>
         </div>
-        <p>{{ currentPage }}</p>
-        <div class="next" @click="goToPage(currentPage + 1)">
-          <p>next page</p>
-          <Icon
-            icon="ion:arrow-redo-sharp"
-            width="32"
-            height="32"
-            style="color: C9C1B1"
-          />
+        <div class="pages__currentPage">
+          <p class="fs-pri--800">{{ currentPage - 1 }}</p>
+          <p class="fs-pri--1000">/</p>
+          <p class="fs-pri--1400">{{ currentPage }}</p>
         </div>
       </div>
+      <cards-view :listing="listing" />
     </div>
     <div v-if="error">{{ error }}</div>
     <div v-if="isLoading" class="center-loading">
