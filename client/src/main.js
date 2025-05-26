@@ -18,13 +18,16 @@ createApp(App).use(router).use(pinia).mount("#app");
 //   let isValid = false;
 
 //   try {
-//     const res = await fetch("http://localhost:3000/app/v1/user/cookieIsValid", {
-//       method: "GET",
-//       credentials: "include",
-//     });
+//     // const res = await fetch(
+//     //   "http://eo00wo08gs08kwosoowksksg.devartist.art/app/v1/user/cookieIsValid",
+//     //   {
+//     //     method: "GET",
+//     //     credentials: "include",
+//     //   }
+//     // );
 
-//     const content = await res.json();
-//     isValid = content.valid;
+//     // const content = await res.json();
+//     isValid = true;
 //   } catch (error) {
 //     console.error("Error validating cookie:", error);
 //   }
