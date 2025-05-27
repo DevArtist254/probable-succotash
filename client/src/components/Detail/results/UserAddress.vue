@@ -6,16 +6,16 @@
       </div>
       <div class="user__stack">
         <a
-          href="tel:+254795263459"
+          :href="`tel:+${user.phoneNumber[0]}`"
           class="clr-pri--1000 fw-pri--200 ff-sec fs-pri--600"
           id="userPhone"
-          >0795 263459</a
+          >{{ user.phoneNumber[0] }}</a
         >
         <a
-          href="tel:+254795263459"
+          :href="`tel:+${user.phoneNumber[1]}`"
           class="clr-pri--1000 fw-pri--200 ff-sec fs-pri--600"
           id="userPhone"
-          >0795 263459</a
+          >{{ user.phoneNumber[1] }}</a
         >
       </div>
     </address>
@@ -38,9 +38,9 @@
       </div>
       <div class="user__stack">
         <a
-          href="mailto:motors@gmail.com"
+          :href="`mailto:${user.email}`"
           class="clr-pri--1000 fw-pri--200 ff-sec fs-pri--600"
-          >motors@gmail.com</a
+          >{{ user.email }}</a
         >
       </div>
     </address>
@@ -48,7 +48,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: ["user"],
+};
 </script>
 
 <style></style>

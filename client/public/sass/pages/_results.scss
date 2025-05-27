@@ -151,7 +151,8 @@
 }
 
 #map {
-  height: 100%;
+  width: 100%;
+  height: 48rem;
 }
 
 address {
@@ -173,4 +174,10 @@ address {
   position: fixed;
   top: 0;
   width: 33rem;
+}
+
+.adVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

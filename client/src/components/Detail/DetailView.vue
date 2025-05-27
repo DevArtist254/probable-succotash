@@ -1,15 +1,19 @@
 <template>
   <div class="m-container containerRow">
     <main id="main">
-      <ad-images :coverImage="product.coverImage" />
+      <ad-images :coverVideo="product.coverVideo" />
       <ad-details :product="product" />
       <specifications-primary
         :primarySpecifications="product.primarySpecifications"
       />
       <specifications-secondary :specifications="product.specifications" />
       <ad-description :description="product.description" />
-      <seller-details />
-      <user-address />
+      <div v-if="user">
+        <seller-details :user="user" />
+        <user-address :user="user" />
+      </div>
+      <div v-if="error">{{ error }}</div>
+      <div v-if="isLoading" class="loader"></div>
       <user-location :location="product.location" />
     </main>
     <ad-sidebar :images="product.images" :coverImage="product.coverImage" />
@@ -17,6 +21,7 @@
 </template>
 
 <script>
+import { onMounted, ref } from "vue";
 import AdDescription from "./results/AdDescription.vue";
 import AdDetails from "./results/AdDetails.vue";
 import AdImages from "./results/AdImages.vue";
@@ -39,6 +44,24 @@ export default {
     AdSidebar,
   },
   props: ["product"],
+  setup(props) {
+    const user = ref(null);
+    const isLoading = ref(false);
+    const error = ref("");
+
+    const getSeller = async () => {
+      const res = await fetch(
+        `http://localhost:3000/app/v1/user/${props.product.seller}`
+      );
+      const message = await res.json();
+
+      user.value = message.data.doc;
+    };
+
+    onMounted(getSeller);
+
+    return { user, isLoading, error };
+  },
 };
 </script>
 
