@@ -51,7 +51,7 @@ export default {
 
     const getSeller = async () => {
       const res = await fetch(
-        `http://localhost:3000/app/v1/user/${props.product.seller}`
+        `http://eo00wo08gs08kwosoowksksg.devartist.art/app/v1/user/${props.product.seller}`
       );
       const message = await res.json();
 
