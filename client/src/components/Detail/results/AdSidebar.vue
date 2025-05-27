@@ -10,17 +10,14 @@
             </p>
           </span>
           <div class="images__sec--2">
-            <img
-              src="/images/681bfee0d256d883fafcd13a/image-1.jpg"
-              alt="car1"
-            />
+            <img :src="`${images[0]}`" alt="car1" />
           </div>
         </div>
         <div class="images__sec--1">
-          <img src="/images/681bfee0d256d883fafcd13a/image-2.jpg" alt="car2" />
+          <img :src="`${images[1]}`" alt="car2" />
         </div>
         <div class="images__sec--3">
-          <img src="/images/681bfee0d256d883fafcd13a/image-3.jpg" alt="car3" />
+          <img :src="`${images[2]}`" alt="car3" />
         </div>
         <div class="images__sec--mask">
           <span class="images__sec--text">
@@ -29,10 +26,7 @@
             </h1>
           </span>
           <div class="images__sec--4">
-            <img
-              src="/images/681bfee0d256d883fafcd13a/cover-image.jpg"
-              alt="car5"
-            />
+            <img :src="`${coverImage}`" alt="car5" />
           </div>
         </div>
       </div>
@@ -78,6 +72,7 @@
 import { ref, onMounted, onBeforeUnmount } from "vue";
 
 export default {
+  props: ["images", "coverImage"],
   setup() {
     const mainRef = ref(null);
     const sideBarRef = ref(null);

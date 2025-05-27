@@ -4,7 +4,7 @@
     width="36"
     height="36"
     style="color: C9C1B1"
-    class="card__bookmark"
+    class="card__bookmark clr-sec--400"
   />
 </template>
 

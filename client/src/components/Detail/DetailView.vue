@@ -1,7 +1,7 @@
 <template>
   <div class="m-container containerRow">
     <main id="main">
-      <ad-images />
+      <ad-images :coverImage="product.coverImage" />
       <ad-details :product="product" />
       <specifications-primary
         :primarySpecifications="product.primarySpecifications"
@@ -10,9 +10,9 @@
       <ad-description :description="product.description" />
       <seller-details />
       <user-address />
-      <user-location />
+      <user-location :location="product.location" />
     </main>
-    <ad-sidebar />
+    <ad-sidebar :images="product.images" :coverImage="product.coverImage" />
   </div>
 </template>
 

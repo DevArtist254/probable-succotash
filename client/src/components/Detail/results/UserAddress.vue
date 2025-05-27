@@ -2,7 +2,7 @@
   <div class="user__address">
     <address>
       <div class="user__address--img">
-        <img src="@/assets/images/icons/phone.svg" alt="phone call" />
+        <img src="/images/icons/phone.svg" alt="phone call" />
       </div>
       <div class="user__stack">
         <a
@@ -21,7 +21,7 @@
     </address>
     <address>
       <div class="user__address--img">
-        <img src="@/assets/images/icons/location.svg" alt="location" />
+        <img src="/images/icons/location.svg" alt="location" />
       </div>
       <div class="user__stack">
         <h3
@@ -34,7 +34,7 @@
     </address>
     <address>
       <div class="user__address--img">
-        <img src="@/assets/images/icons/email.svg" alt="email icon" />
+        <img src="/images/icons/email.svg" alt="email icon" />
       </div>
       <div class="user__stack">
         <a

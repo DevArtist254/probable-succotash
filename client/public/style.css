@@ -519,6 +519,9 @@ img {
   padding-top: 5rem;
   padding-bottom: 1rem;
   text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .card__link {
   display: flex;
