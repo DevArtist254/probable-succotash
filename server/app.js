@@ -30,26 +30,26 @@ app.use(cookieParser());
 app.use(express.json({ limit: "10kb" }));
 app.use(express.static(path.join(__dirname, "../client/dist")));
 
-app.use((req, res, next) => {
-  req.requestTime = new Date().toISOString();
+// app.use((req, res, next) => {
+//   req.requestTime = new Date().toISOString();
 
-  if (process.env.NODE_ENV === "development")
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
-  if (process.env.NODE_ENV === "production")
-    res.setHeader(
-      "Access-Control-Allow-Origin",
-      "http://eo00wo08gs08kwosoowksksg.devartist.art/"
-    );
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   if (process.env.NODE_ENV === "development")
+//     res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+//   if (process.env.NODE_ENV === "production")
+//     res.setHeader(
+//       "Access-Control-Allow-Origin",
+//       "http://eo00wo08gs08kwosoowksksg.devartist.art/"
+//     );
+//   res.setHeader("Access-Control-Allow-Credentials", "true");
+//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  res.setHeader(
-    "Content-Security-Policy",
-    "script-src 'self' 'unsafe-eval'; object-src 'none';"
-  );
-  next();
-});
+//   res.setHeader(
+//     "Content-Security-Policy",
+//     "script-src 'self' 'unsafe-eval'; object-src 'none';"
+//   );
+//   next();
+// });
 
 app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
