@@ -48,13 +48,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/dist/index.html"));
-});
-
 app.use("/app/v1/product", productRoute);
 app.use("/app/v1/user", userRoute);
 
 app.use(errorController);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
 
 module.exports = app;
