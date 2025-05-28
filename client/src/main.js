@@ -19,7 +19,7 @@ router.beforeEach(async (to, from, next) => {
 
   try {
     const res = await fetch(
-      "http://y8wk8c48wc0g84cwssc4wgcs.devartist.art/app/v1/user/cookieIsValid",
+      "http://mjidb.devartist.art/app/v1/user/cookieIsValid",
       {
         method: "GET",
         credentials: "include",
