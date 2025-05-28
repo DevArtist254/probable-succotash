@@ -39,5 +39,8 @@
   "devDependencies": {
     "nodemon": "^3.1.9",
     "sass": "^1.83.4"
+  },
+  "engines": {
+    "node": "22"
   }
 }
