@@ -10,33 +10,33 @@ pinia.use(piniaPluginPersistedstate);
 
 createApp(App).use(router).use(pinia).mount("#app");
 
-// import { useUserStore } from "@/stores/user";
+import { useUserStore } from "@/stores/user";
 
-// router.beforeEach(async (to, from, next) => {
-//   const userStore = useUserStore();
+router.beforeEach(async (to, from, next) => {
+  const userStore = useUserStore();
 
-//   let isValid = false;
+  let isValid = false;
 
-//   try {
-//     // const res = await fetch(
-//     //   "http://eo00wo08gs08kwosoowksksg.devartist.art/app/v1/user/cookieIsValid",
-//     //   {
-//     //     method: "GET",
-//     //     credentials: "include",
-//     //   }
-//     // );
+  try {
+    const res = await fetch(
+      "http://mjidb.devartist.art/app/v1/user/cookieIsValid",
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    );
 
-//     // const content = await res.json();
-//     isValid = true;
-//   } catch (error) {
-//     console.error("Error validating cookie:", error);
-//   }
+    const content = await res.json();
+    isValid = true;
+  } catch (error) {
+    console.error("Error validating cookie:", error);
+  }
 
-//   if (to.meta.requiresAuth && !userStore.isLoggedIn && !isValid) {
-//     console.log("❌ Not authenticated");
-//     next({ path: "/dashboard/profile/login" });
-//   } else {
-//     console.log("✅ Access granted");
-//     next(); // ✅ allow navigation
-//   }
-// });
+  if (to.meta.requiresAuth && !userStore.isLoggedIn && !isValid) {
+    console.log("❌ Not authenticated");
+    next({ path: "/dashboard/profile/login" });
+  } else {
+    console.log("✅ Access granted");
+    next(); // ✅ allow navigation
+  }
+});

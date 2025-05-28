@@ -78,16 +78,13 @@ export default {
         password: password.value,
       };
 
-      const res = await fetch(
-        `http://eo00wo08gs08kwosoowksksg.devartist.art/app/v1/user/signup`,
-        {
-          method: "POST",
-          mode: "cors",
-          credentials: "include", // 👈 very important: allows cookies to be set
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(submitBody),
-        }
-      );
+      const res = await fetch(`http://mjidb.devartist.art/app/v1/user/signup`, {
+        method: "POST",
+        mode: "cors",
+        credentials: "include", // 👈 very important: allows cookies to be set
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(submitBody),
+      });
 
       const content = await res.json();
       console.log(content);

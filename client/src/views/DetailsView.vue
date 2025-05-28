@@ -40,7 +40,7 @@ export default {
           "http://localhost:3000";
 
         const res = await fetch(
-          `http://eo00wo08gs08kwosoowksksg.devartist.art/app/v1/product/car_listing/${props.id}`
+          `http://mjidb.devartist.art/app/v1/product/car_listing/${props.id}`
         );
 
         const message = await res.json();
