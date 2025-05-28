@@ -1,0 +1,15 @@
+@mixin flexRowCr($align: center, $justify: space-between) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flexColumnCr($align: center, $justify: center) {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: $justify;
+  align-items: $align;
+}
