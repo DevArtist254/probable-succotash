@@ -51,7 +51,7 @@ export default {
 
     const getSeller = async () => {
       const res = await fetch(
-        `http://mjidb.devartist.art/app/v1/user/${props.product.seller}`
+        `http://y8wk8c48wc0g84cwssc4wgcs.devartist.art/app/v1/user/${props.product.seller}`
       );
       const message = await res.json();
 

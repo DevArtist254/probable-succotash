@@ -61,12 +61,15 @@ export default {
     const handleSubmit = async () => {
       const submitBody = { email: email.value, password: password.value };
 
-      const res = await fetch(`http://mjidb.devartist.art/app/v1/user/login`, {
-        method: "POST",
-        credentials: "include", // 👈 very important: allows cookies to be set
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(submitBody),
-      });
+      const res = await fetch(
+        `http://y8wk8c48wc0g84cwssc4wgcs.devartist.art/app/v1/user/login`,
+        {
+          method: "POST",
+          credentials: "include", // 👈 very important: allows cookies to be set
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(submitBody),
+        }
+      );
 
       const content = await res.json();
       userStore.login(content);
