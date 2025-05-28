@@ -20,7 +20,6 @@
   "scripts": {
     "app:server": "nodemon server/server.js",
     "iNode": "npm install & npm --prefix client run iMode",
-    "build": "npm --prefix client run build",
     "app:devserver": "NODE_ENV=development nodemon server/server.js",
     "start": "node server/server.js"
   },
