@@ -18,10 +18,13 @@ router.beforeEach(async (to, from, next) => {
   let isValid = false;
 
   try {
-    const res = await fetch("http://localhost:3000/app/v1/user/cookieIsValid", {
-      method: "GET",
-      credentials: "include",
-    });
+    const res = await fetch(
+      "http://mjidb.devartist.art/app/v1/user/cookieIsValid",
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    );
 
     const content = await res.json();
     isValid = true;
