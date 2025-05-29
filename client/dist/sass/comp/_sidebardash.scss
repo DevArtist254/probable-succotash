@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 15%;
+  width: 16%;
   height: 100vh;
   padding: 2.5rem 3rem 0 3rem;
   border-right: 1px solid #c9c1b1;
@@ -11,10 +11,6 @@
     display: block;
     margin-top: 1rem;
     margin-bottom: 1rem;
-
-    &--img {
-      height: 10rem;
-    }
   }
 
   &__form {

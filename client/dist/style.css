@@ -319,7 +319,7 @@ img {
   position: fixed;
   top: 0;
   left: 0;
-  width: 15%;
+  width: 16%;
   height: 100vh;
   padding: 2.5rem 3rem 0 3rem;
   border-right: 1px solid #c9c1b1;
@@ -328,9 +328,6 @@ img {
   display: block;
   margin-top: 1rem;
   margin-bottom: 1rem;
-}
-.sidebarnav__logo--img {
-  height: 10rem;
 }
 .sidebarnav__form {
   margin-bottom: 5rem;
@@ -361,9 +358,6 @@ img {
 }
 
 .topbardash {
-  position: absolute;
-  right: 0;
-  width: 82.5%;
   height: 17vh;
   border-bottom: 1px solid #c9c1b1;
 }
@@ -375,7 +369,7 @@ img {
   flex-wrap: wrap;
   justify-content: initial;
   align-items: center;
-  padding-left: 4rem;
+  padding-left: 10rem;
 }
 .topbardash__nav--list {
   list-style: none;
@@ -716,10 +710,6 @@ address {
 }
 
 .profile-content {
-  position: absolute;
-  top: 224px;
-  right: 0;
-  width: 82.5%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -745,6 +735,7 @@ address {
 .form {
   height: fit-content;
   margin: 4rem 0;
+  width: 80%;
 }
 .form__sec {
   display: flex;
@@ -759,7 +750,7 @@ address {
 }
 .form__sec--input {
   border-radius: 5px;
-  width: 50rem;
+  width: 100%;
   height: 4rem;
   border: none;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
@@ -816,6 +807,22 @@ address {
 
 .prev {
   margin-right: 0.5rem;
+}
+
+.dashboard {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.dashboard-nav {
+  width: 17.7%;
+  height: 100vh;
+}
+
+.dashboard-content {
+  width: 82.3%;
 }
 
 /*# sourceMappingURL=style.css.map */

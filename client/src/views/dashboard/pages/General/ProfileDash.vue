@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dashboard-content">
     <topbarnav />
     <router-view />
   </div>
@@ -9,10 +9,8 @@
 import Topbarnav from "../../../../components/Dashboard/Topbarnav.vue";
 
 export default {
-    components: {Topbarnav}
-}
+  components: { Topbarnav },
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

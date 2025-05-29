@@ -1,9 +1,6 @@
 @use "../abs/mixin" as *;
 
 .topbardash {
-  position: absolute;
-  right: 0;
-  width: 82.5%;
   height: 17vh;
   border-bottom: 1px solid #c9c1b1;
 
@@ -12,7 +9,7 @@
       height: 55%;
       border-bottom: 1px solid #c9c1b1;
       @include flexRowCr(center, initial);
-      padding-left: 4rem;
+      padding-left: 10rem;
     }
 
     &--list {

@@ -47,10 +47,12 @@
 <script>
 import { ref } from "vue";
 import { useUserStore } from "@/stores/user";
+import { useRouter } from "vue-router";
 
 export default {
   name: "LoginSettings",
   setup() {
+    const router = useRouter();
     const userStore = useUserStore();
     const email = ref("");
     const password = ref("");
@@ -61,7 +63,7 @@ export default {
     const handleSubmit = async () => {
       const submitBody = { email: email.value, password: password.value };
 
-      const res = await fetch(`http://mjidb.devartist.art/app/v1/user/login`, {
+      const res = await fetch(`http://localhost:3000/app/v1/user/login`, {
         method: "POST",
         credentials: "include", // 👈 very important: allows cookies to be set
         headers: { "Content-Type": "application/json" },
@@ -70,6 +72,7 @@ export default {
 
       const content = await res.json();
       userStore.login(content);
+      router.push("/");
     };
 
     return { handleSubmit, email, password };
