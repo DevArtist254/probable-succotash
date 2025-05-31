@@ -54,6 +54,13 @@
   &__link {
     @include flexRowCr(baseline);
     margin-right: 4rem;
+
+    &--img {
+      width: 48px;
+      height: 48px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
   }
 
   &__cta {

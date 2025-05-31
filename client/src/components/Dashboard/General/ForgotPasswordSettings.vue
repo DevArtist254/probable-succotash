@@ -43,7 +43,7 @@ export default {
     const password = ref("");
     const API_URL =
       "http://j0k400sc0k80gwwcs8kcgkow.devartist.art" ||
-      "http://mjidb.devartist.art";
+      "http://localhost:3000";
 
     const handleSubmit = async () => {
       const submitBody = {
@@ -51,7 +51,7 @@ export default {
       };
 
       const res = await fetch(
-        `http://mjidb.devartist.art/app/v1/user/passwordreqreset`,
+        `http://localhost:3000/app/v1/user/passwordreqreset`,
         {
           method: "POST",
           mode: "cors",

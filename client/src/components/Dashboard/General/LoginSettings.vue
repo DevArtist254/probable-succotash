@@ -58,12 +58,12 @@ export default {
     const password = ref("");
     const API_URL =
       "http://j0k400sc0k80gwwcs8kcgkow.devartist.art" ||
-      "http://mjidb.devartist.art";
+      "http://localhost:3000";
 
     const handleSubmit = async () => {
       const submitBody = { email: email.value, password: password.value };
 
-      const res = await fetch(`http://mjidb.devartist.art/app/v1/user/login`, {
+      const res = await fetch(`http://localhost:3000/app/v1/user/login`, {
         method: "POST",
         credentials: "include", // 👈 very important: allows cookies to be set
         headers: { "Content-Type": "application/json" },
@@ -71,7 +71,8 @@ export default {
       });
 
       const content = await res.json();
-      userStore.login(content);
+      const userdata = content.data.user;
+      userStore.login(userdata);
       router.push("/");
     };
 

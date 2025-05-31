@@ -207,6 +207,12 @@ img {
   align-items: baseline;
   margin-right: 4rem;
 }
+.nav__link--img {
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+  overflow: hidden;
+}
 .nav__cta {
   text-align: center;
   display: inline-block;

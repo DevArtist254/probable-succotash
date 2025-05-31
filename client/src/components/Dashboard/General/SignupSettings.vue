@@ -69,7 +69,7 @@ export default {
     const password = ref("");
     const API_URL =
       "http://j0k400sc0k80gwwcs8kcgkow.devartist.art" ||
-      "http://mjidb.devartist.art";
+      "http://localhost:3000";
 
     const handleSubmit = async () => {
       const submitBody = {
@@ -78,7 +78,7 @@ export default {
         password: password.value,
       };
 
-      const res = await fetch(`http://mjidb.devartist.art/app/v1/user/signup`, {
+      const res = await fetch(`http://localhost:3000/app/v1/user/signup`, {
         method: "POST",
         mode: "cors",
         credentials: "include", // 👈 very important: allows cookies to be set

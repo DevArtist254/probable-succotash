@@ -61,6 +61,26 @@
           </span>
         </li>
         <li class="nav__item">
+          <div v-if="isLoggedIn">
+            <div class="nav__link nav__link--img">
+              <img :src="userPhoto" alt="user photo" />
+            </div>
+          </div>
+          <div v-else>
+            <span class="nav__link">
+              <router-link to="/dashboard/profile/login">
+                <Icon
+                  icon="ic:baseline-account-box"
+                  width="48"
+                  height="48"
+                  style="color: C9C1B1"
+                  class="clr-pri--200"
+                />
+              </router-link>
+            </span>
+          </div>
+        </li>
+        <li class="nav__item">
           <span class="nav__cta bdg-pri--200">
             <router-link
               to="/trade"
@@ -75,11 +95,20 @@
 </template>
 
 <script>
+import { Icon } from "@iconify/vue";
 import NavSearch from "./NavSearch.vue";
+import { useUserStore } from "@/stores/user";
 
 export default {
   name: "NavBar",
-  components: { NavSearch },
+  components: { NavSearch, Icon },
+  setup() {
+    const user = useUserStore();
+    const isLoggedIn = user.isLoggedIn;
+    const userPhoto = user.photo;
+
+    return { isLoggedIn, userPhoto };
+  },
 };
 </script>
 

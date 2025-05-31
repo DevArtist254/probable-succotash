@@ -83,10 +83,10 @@ export default {
 
         const API_URL =
           "http://j0k400sc0k80gwwcs8kcgkow.devartist.art" ||
-          "http://mjidb.devartist.art";
+          "http://localhost:3000";
 
         const res = await fetch(
-          `http://mjidb.devartist.art/app/v1/product/car_listing?page=${currentPage.value}&limit=${limit}`
+          `http://localhost:3000/app/v1/product/car_listing?page=${currentPage.value}&limit=${limit}`
         );
 
         const message = await res.json();
