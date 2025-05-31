@@ -62,9 +62,11 @@
         </li>
         <li class="nav__item">
           <div v-if="isLoggedIn">
-            <div class="nav__link nav__link--img">
-              <img :src="userPhoto" alt="user photo" />
-            </div>
+            <router-link to="/dashboard/profile">
+              <div class="nav__link nav__link--img">
+                <img :src="userPhoto" alt="user photo" />
+              </div>
+            </router-link>
           </div>
           <div v-else>
             <span class="nav__link">

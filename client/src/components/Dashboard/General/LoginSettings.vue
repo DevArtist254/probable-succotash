@@ -71,6 +71,7 @@ export default {
       });
 
       const content = await res.json();
+      console.log(content);
       const userdata = content.data.user;
       userStore.login(userdata);
       router.push("/");

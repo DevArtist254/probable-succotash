@@ -7,6 +7,7 @@ import ProfileDash from "@/views/dashboard/pages/General/ProfileDash.vue";
 import DashboardView from "@/views/dashboard/DashboardView.vue";
 import LoginSettings from "@/components/Dashboard/General/LoginSettings.vue";
 import SignupSettings from "@/components/Dashboard/General/SignupSettings.vue";
+import GeneralSettings from "@/components/Dashboard/General/GeneralSettings.vue";
 import ForgotPasswordSettings from "@/components/Dashboard/General/ForgotPasswordSettings.vue";
 
 const routes = [
@@ -42,6 +43,10 @@ const routes = [
         path: "profile",
         component: ProfileDash,
         children: [
+          {
+            path: "",
+            component: GeneralSettings,
+          },
           {
             path: "login",
             component: LoginSettings,

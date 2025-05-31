@@ -14,12 +14,10 @@ function createSendToken(user, statusCode, res) {
   const token = jwtSign(user._id);
 
   const cookieOptions = {
-    expires: new Date(
-      Date.now() + process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000
-    ),
-    secure: true,
+    expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+    // secure: true,
     sameSite: "Lax",
-    httpOnly: true,
+    // httpOnly: true,
   };
 
   res.cookie("jwt", token, cookieOptions);
@@ -60,7 +58,7 @@ exports.checkifcookieisvalid = CatchAsync(async (req, res, next) => {
   let token;
 
   if (req.cookie && req.cookie.jwt) {
-    token = req.cookie.jwt;
+    token = req.cookies.jwt;
   }
 
   if (!token) next(new ErrorHandler("Access denied, please login", 401));
@@ -79,8 +77,8 @@ exports.checkifcookieisvalid = CatchAsync(async (req, res, next) => {
 exports.protect = CatchAsync(async (req, res, next) => {
   let token;
 
-  if (req.cookie && req.cookie.jwt) {
-    token = req.cookie.jwt;
+  if (req.cookies && req.cookies.jwt) {
+    token = req.cookies.jwt;
   }
 
   if (
@@ -90,11 +88,16 @@ exports.protect = CatchAsync(async (req, res, next) => {
     token = req.headers.authorization.split(" ")[1];
   }
 
-  console.log(token);
-
   if (!token) next(new ErrorHandler("Access denied, please login", 401));
 
-  const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  const decoded = await new Promise((resolve, reject) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+      console.log(err);
+
+      if (err) reject(err);
+      else resolve(decoded);
+    });
+  });
 
   let existingUser = await User.findById(decoded.id);
 

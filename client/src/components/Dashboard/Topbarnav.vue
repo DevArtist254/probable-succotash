@@ -12,37 +12,47 @@
       Profile settings
     </p>
     <ul class="topbardash__nav--list">
-      <li class="topbardash__nav--item">
-        <router-link
-          to="/dashboard/profile/login"
-          class="topbardash__nav--link clr-pri--600 fs-pri--800 fw-pri--200"
-          >Have an account, <strong>login</strong> here</router-link
-        >
-      </li>
-      <li class="topbardash__nav--item">
-        <router-link
-          to="/dashboard/profile/signup"
-          class="topbardash__nav--link clr-pri--600 fs-pri--800 fw-pri--200"
-          >Don't have an account, <strong>signup</strong> here</router-link
-        >
-      </li>
-      <li class="topbardash__nav--item">
-        <router-link
-          to="/dashboard/profile/forgotpassword"
-          class="topbardash__nav--link clr-pri--600 fs-pri--800 fw-pri--200"
-          >Forgotten your password?</router-link
-        >
-      </li>
+      <div v-if="!loginedIn">
+        <li class="topbardash__nav--item">
+          <router-link
+            to="/dashboard/profile/login"
+            class="topbardash__nav--link clr-pri--600 fs-pri--800 fw-pri--200"
+            >Have an account, <strong>login</strong> here</router-link
+          >
+        </li>
+        <li class="topbardash__nav--item">
+          <router-link
+            to="/dashboard/profile/signup"
+            class="topbardash__nav--link clr-pri--600 fs-pri--800 fw-pri--200"
+            >Don't have an account, <strong>signup</strong> here</router-link
+          >
+        </li>
+
+        <li class="topbardash__nav--item">
+          <router-link
+            to="/dashboard/profile/forgotpassword"
+            class="topbardash__nav--link clr-pri--600 fs-pri--800 fw-pri--200"
+            >Forgotten your password?</router-link
+          >
+        </li>
+      </div>
     </ul>
   </div>
 </template>
 
 <script>
 import { Icon } from "@iconify/vue";
+import { useUserStore } from "@/stores/user";
 
 export default {
   name: "Topbarnav",
   components: { Icon },
+  setup() {
+    const userStore = useUserStore();
+    const loginedIn = userStore.isLoggedIn;
+
+    return { loginedIn };
+  },
 };
 </script>
 
