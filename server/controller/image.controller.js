@@ -4,10 +4,17 @@ const CatchAsync = require("../utils/CatchAsync");
 const sharp = require("sharp");
 
 exports.compressImage = CatchAsync(async (req, res, next) => {
-  const filePath = path.join(
-    __dirname,
-    `../../client/public/images/${req.user.id}/`
-  );
+  let filePath;
+
+  if (process.env.NODE_ENV === "production") {
+    filePath = path.join(__dirname, `../../client/dist/images/${req.user.id}/`);
+  } else {
+    filePath = path.join(
+      __dirname,
+      `../../client/public/images/${req.user.id}/`
+    );
+  }
+
   const fileName = `${Date.now()}-${req.user.id}-${req.file.originalname}.webp`;
   const fileNameThumbnail = `${Date.now()}-${req.user.id}-${
     req.file.originalname
