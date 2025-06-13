@@ -39,35 +39,9 @@ const userSchema = new mongoose.Schema(
         },
         coordinates: [Number],
         address: String,
-        description: String,
-        primary: Boolean,
       },
     ],
-    logo: String,
-    slogan: {
-      type: String,
-      trim: true,
-    },
     photo: String,
-    socials: [
-      {
-        image: {
-          type: String,
-          enum: [
-            "facebook",
-            "instagram",
-            "linkedin",
-            "telegram",
-            "tiktok",
-            "whatsapp",
-            "x",
-            "youtube",
-          ],
-          default: "whatsapp",
-        },
-        link: String,
-      },
-    ],
     phoneNumber: [
       {
         type: Number,

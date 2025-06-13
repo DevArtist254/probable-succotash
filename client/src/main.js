@@ -10,7 +10,7 @@ pinia.use(piniaPluginPersistedstate);
 
 createApp(App).use(router).use(pinia).mount("#app");
 
-import { useUserStore } from "@/stores/user";
+import { useUserStore } from "./stores/user";
 
 router.beforeEach(async (to, from, next) => {
   const userStore = useUserStore();

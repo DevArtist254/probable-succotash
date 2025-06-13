@@ -42,7 +42,7 @@
 
 <script>
 import { Icon } from "@iconify/vue";
-import { useUserStore } from "@/stores/user";
+import { useUserStore } from "../../stores/user";
 
 export default {
   name: "Topbarnav",

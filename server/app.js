@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 } else {
   app.use(
     cors({
-      origin: "http://localhost:8080", // must match your frontend origin
+      origin: "http://localhost:5173", // must match your frontend origin
       credentials: true, // allow cookies to be sent
     })
   );
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
 
   if (process.env.NODE_ENV === "development")
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
   if (process.env.NODE_ENV === "production")
     res.setHeader("Access-Control-Allow-Origin", "http://mjidb.devartist.art/");
   res.setHeader("Access-Control-Allow-Credentials", "true");
