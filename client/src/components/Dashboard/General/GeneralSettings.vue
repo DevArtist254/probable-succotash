@@ -67,7 +67,7 @@ export default {
       if (!imageFile.value) return;
 
       const formData = new FormData();
-      formData.append("photo", imageFile.value);
+      formData.append("photo", imageFile.value, "profile");
 
       try {
         const res = await fetch("http://localhost:3000/app/v1/user/upload/", {

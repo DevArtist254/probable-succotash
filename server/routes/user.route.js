@@ -6,7 +6,7 @@ const {
   checkifcookieisvalid,
   protect,
 } = require("../controller/auth.controller");
-const { getuser } = require("../controller/user.controller");
+const { getuser, uploadpProfile } = require("../controller/user.controller");
 const {
   uploadString,
   compressImage,
@@ -25,7 +25,7 @@ route.post(
   protect,
   upload.single("photo"),
   compressImage,
-  uploadString
+  uploadpProfile
 );
 
 route.get("/cookieIsValid", checkifcookieisvalid);

@@ -14,4 +14,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.adVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>

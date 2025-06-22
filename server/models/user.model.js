@@ -42,6 +42,7 @@ const userSchema = new mongoose.Schema(
       },
     ],
     photo: String,
+    photoThumbnail: String,
     phoneNumber: [
       {
         type: Number,

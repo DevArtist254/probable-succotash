@@ -4,25 +4,27 @@ const CatchAsync = require("../utils/CatchAsync");
 const sharp = require("sharp");
 
 exports.compressImage = CatchAsync(async (req, res, next) => {
-  let filePath;
+  let filePath, folderPath;
 
   if (process.env.NODE_ENV === "production") {
-    filePath = path.join(__dirname, `../../client/dist/images/${req.user.id}/`);
+    filePath = `/images/${req.user.id}/`;
+    folderPath = path.join(__dirname, `../../client/dist/images/${req.user.id}/`);
   } else {
-    filePath = path.join(
+    filePath = `/images/${req.user.id}/`;
+    folderPath = path.join(
       __dirname,
       `../../client/public/images/${req.user.id}/`
     );
   }
-
+ 
   const fileName = `${Date.now()}-${req.user.id}-${req.file.originalname}.webp`;
   const fileNameThumbnail = `${Date.now()}-${req.user.id}-${
     req.file.originalname
   }-thumbnail.webp`;
-  const output = path.join(filePath, fileName);
-  const outputThumb = path.join(filePath, fileNameThumbnail);
+  const output = path.join(folderPath, fileName);
+  const outputThumb = path.join(folderPath, fileNameThumbnail);
 
-  await fs.promises.mkdir(filePath, { recursive: true });
+  await fs.promises.mkdir(folderPath, { recursive: true });
 
   await sharp(req.file.buffer)
     .webp({ quality: 70 })
@@ -34,7 +36,8 @@ exports.compressImage = CatchAsync(async (req, res, next) => {
     .withMetadata({ comment: `user_id=${req.user.id}` })
     .toFile(outputThumb);
 
-  req.url = output;
+  req.url = path.join(filePath, fileName);;
+  req.urlThumb = path.join(filePath, fileName);;
   next();
 });
 
@@ -42,6 +45,8 @@ exports.uploadString = (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: "No file uploaded" });
   }
+
+  console.log(req.url);
 
   res.status(200).json({
     message: "File uploaded succesfully",
