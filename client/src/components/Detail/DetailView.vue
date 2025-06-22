@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { ref, onMounted } from "vue";
 import AdDescription from "./results/AdDescription.vue";
 import AdDetails from "./results/AdDetails.vue";
 import AdImages from "./results/AdImages.vue";

@@ -9,6 +9,8 @@ import LoginSettings from "../components/Dashboard/General/LoginSettings.vue";
 import SignupSettings from "../components/Dashboard/General/SignupSettings.vue";
 import GeneralSettings from "../components/Dashboard/General/GeneralSettings.vue";
 import ForgotPasswordSettings from "../components/Dashboard/General/ForgotPasswordSettings.vue";
+import StudioDash from "../views/dashboard/pages/StudioDash.vue";
+import StudioCreate from "../components/Dashboard/Studio/StudioCreate.vue";
 
 const routes = [
   {
@@ -29,7 +31,6 @@ const routes = [
       },
     ],
   },
-
   {
     path: "/about",
     component: AboutView,
@@ -39,6 +40,16 @@ const routes = [
     path: "/dashboard",
     component: DashboardView,
     children: [
+      {
+        path: "studio",
+        component: StudioDash,
+        children: [
+          {
+            path: "",
+            component: StudioCreate
+          }
+        ]
+      },
       {
         path: "profile",
         component: ProfileDash,

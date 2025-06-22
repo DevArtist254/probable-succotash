@@ -53,7 +53,11 @@
       </span>
       <ul v-if="loginedIn">
         <li>Home</li>
-        <li>Studio</li>
+        <li>
+          <router-link to="/dashboard/studio">
+            Studio
+          </router-link>
+        </li>
         <li>
           <span>Orders <button>></button></span>
           <ul>
